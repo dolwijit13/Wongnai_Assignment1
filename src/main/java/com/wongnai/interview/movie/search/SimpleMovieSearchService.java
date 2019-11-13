@@ -24,7 +24,7 @@ public class SimpleMovieSearchService implements MovieSearchService
 		String[]words = movieName.split(" ");
 		for(int i=0;i<words.length;i++)
 		{
-			if(words[i].compareTo(queryText) == 0) return true;
+			if(words[i].toLowerCase().compareTo(queryText) == 0) return true;
 		}
 		return false;
 	}
@@ -35,6 +35,8 @@ public class SimpleMovieSearchService implements MovieSearchService
 		// TODO: Step 2 => Implement this method by using data from MovieDataService
 		// All test in SimpleMovieSearchServiceIntegrationTest must pass.
 		// Please do not change @Component annotation on this class
+		queryText=queryText.toLowerCase();
+		
 		List<Movie>ans = new ArrayList<Movie>();
 		MovieDataServiceImpl movieDataService = new MovieDataServiceImpl();
 		MoviesResponse result =  movieDataService.fetchAll();
