@@ -1,5 +1,6 @@
 package com.wongnai.interview.movie.external;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -34,5 +35,18 @@ public class MovieDataServiceImplIntegrationTest {
 		Assert.assertThat(afterDark.get().getYear(), Matchers.equalTo(1924));
 		Assert.assertThat(afterDark.get().getGenres(), Matchers.equalTo(Arrays.asList("Romance")));
 		Assert.assertThat(afterDark.get().getCast(), Matchers.equalTo(Arrays.asList("Laurette Taylor", "Tom Moore")));
+	}
+	
+	@Test
+	public void testMappingEmptyArrayCorrectly() {
+		MoviesResponse result = movieDataService.fetchAll();
+		Optional<MovieData> afterDark = result.stream()
+				.filter(m -> m.getTitle().equals("After Dark in Central Park"))
+				.findFirst();
+
+		Assert.assertThat(afterDark.isPresent(), Matchers.equalTo(true));
+		Assert.assertThat(afterDark.get().getYear(), Matchers.equalTo(1900));
+		Assert.assertThat(afterDark.get().getGenres(), Matchers.equalTo(new ArrayList<String>()));
+		Assert.assertThat(afterDark.get().getCast(), Matchers.equalTo(new ArrayList<String>()));
 	}
 }

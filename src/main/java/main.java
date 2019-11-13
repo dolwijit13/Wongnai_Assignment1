@@ -24,11 +24,11 @@ public class main
 		tmp.fetchAll();
 		*/
 		
-		/*
 		MovieDataServiceImpl movieDataService = new MovieDataServiceImpl();
 		MoviesResponse result = movieDataService.fetchAll();
-		System.out.println(result.size());
-		*/
+		//System.out.println(result.size());
+		System.out.println(result.get(0).getGenres().getClass());
+		System.out.println(Arrays.asList("").getClass());
 		
 		/*
 		String test = "test";

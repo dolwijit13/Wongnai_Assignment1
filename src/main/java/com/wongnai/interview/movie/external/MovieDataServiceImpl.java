@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,15 +57,15 @@ public class MovieDataServiceImpl implements MovieDataService
 			 */
 
 			// *
-			/// Crete MovieResponse 
+			/// Create MovieResponse 
 			MoviesResponse moviesResponse = new MoviesResponse();
 			for (int i = 0; i < jsonArray.length(); i++)
 			{
 				JSONObject jsonObject = jsonArray.getJSONObject(i);
 				String title = (String) jsonObject.get("title");
 				int year = (int) jsonObject.get("year");
-				ArrayList<String> cast = jsonArrayToArrayList(jsonObject.get("cast"));
-				ArrayList<String> genres = jsonArrayToArrayList(jsonObject.get("genres"));
+				List<String> cast = jsonArrayToArrayList(jsonObject.get("cast"));
+				List<String> genres = jsonArrayToArrayList(jsonObject.get("genres"));
 
 				moviesResponse.add(new MovieData(title, year, cast, genres));
 			}
