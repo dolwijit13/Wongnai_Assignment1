@@ -31,4 +31,16 @@ public class MoviesControllerIntegrationTest {
 				.andExpect(jsonPath("$[?(@.name == 'The Glorious Fool')].actors[*]",
 						Matchers.equalTo(Arrays.asList("Helene Chadwick", "Richard Dix"))));
 	}
+	
+	@Test
+	public void testSearchWithCaseInsentisive() throws Exception {
+		mvc.perform(get("/movies/search?q=glorious"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$").isArray())
+				.andExpect(jsonPath("$.length()", Matchers.equalTo(7)))
+				.andExpect(jsonPath("$[?(@.name == 'The Glorious Fool')].actors[*]",
+						Matchers.equalTo(Arrays.asList("Helene Chadwick", "Richard Dix"))));
+	}
+	
+	
 }

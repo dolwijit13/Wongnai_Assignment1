@@ -22,16 +22,19 @@ public class main
 		 * MovieDataServiceImpl tmp = new MovieDataServiceImpl(); tmp.fetchAll();
 		 */
 		
-		System.out.println("shiba".compareTo("Shiba"));
+		//System.out.println("shiba".compareTo("Shiba"));
 		
 		/*
 		SimpleMovieSearchService simpleMovieSearchService = new SimpleMovieSearchService();
-		java.util.List<Movie> tmp = simpleMovieSearchService.search("Glorious");
+		java.util.List<Movie> tmp = simpleMovieSearchService.search("glorious");
+		/*
 		for(int i=0;i<tmp.size();i++)
 		{
 			System.out.println(tmp.get(i).getName());
 		}
 		*/
+		//System.out.println(tmp.size());
+		//*/
 	}
 
 }
