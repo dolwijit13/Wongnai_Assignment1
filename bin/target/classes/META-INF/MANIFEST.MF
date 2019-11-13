@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: cart-dojo
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: dol51
+Implementation-Vendor-Id: com.wongnai.interview
+Build-Jdk: 1.8.0_231
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/cart-dojo
+Created-By: Maven Integration for Eclipse
+
