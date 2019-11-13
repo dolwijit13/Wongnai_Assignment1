@@ -13,8 +13,8 @@ public class MovieData
 	public MovieData()
 	{
 	}
-	
-	public MovieData(String title,int year,List<String> cast,List<String> genres,long id)
+
+	public MovieData(String title, int year, List<String> cast, List<String> genres, long id)
 	{
 		setTitle(title);
 		setYear(year);
@@ -62,7 +62,7 @@ public class MovieData
 	{
 		this.genres = genres;
 	}
-	
+
 	public long getId()
 	{
 		return id;
@@ -72,10 +72,10 @@ public class MovieData
 	{
 		this.id = id;
 	}
-	
-	//For print test
+
+	// For print test
 	public String toString()
 	{
-		return "Title : "+title + " | Year : "+year+" | Cast : "+cast+" | Genres : "+genres+"\n";
+		return "Title : " + title + " | Year : " + year + " | Cast : " + cast + " | Genres : " + genres + "\n";
 	}
 }

@@ -18,29 +18,27 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
 @AutoConfigureMockMvc
-public class MoviesControllerIntegrationTest {
+public class MoviesControllerIntegrationTest
+{
 	@Autowired
 	private MockMvc mvc;
 
 	@Test
-	public void testSearchWithRestApi() throws Exception {
-		mvc.perform(get("/movies/search?q=Glorious"))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$").isArray())
+	public void testSearchWithRestApi() throws Exception
+	{
+		mvc.perform(get("/movies/search?q=Glorious")).andExpect(status().isOk()).andExpect(jsonPath("$").isArray())
 				.andExpect(jsonPath("$.length()", Matchers.equalTo(7)))
 				.andExpect(jsonPath("$[?(@.name == 'The Glorious Fool')].actors[*]",
 						Matchers.equalTo(Arrays.asList("Helene Chadwick", "Richard Dix"))));
 	}
-	
+
 	@Test
-	public void testSearchWithCaseInsentisive() throws Exception {
-		mvc.perform(get("/movies/search?q=glorious"))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$").isArray())
+	public void testSearchWithCaseInsentisive() throws Exception
+	{
+		mvc.perform(get("/movies/search?q=glorious")).andExpect(status().isOk()).andExpect(jsonPath("$").isArray())
 				.andExpect(jsonPath("$.length()", Matchers.equalTo(7)))
 				.andExpect(jsonPath("$[?(@.name == 'The Glorious Fool')].actors[*]",
 						Matchers.equalTo(Arrays.asList("Helene Chadwick", "Richard Dix"))));
 	}
-	
-	
+
 }

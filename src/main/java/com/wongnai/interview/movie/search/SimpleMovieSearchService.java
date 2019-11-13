@@ -18,13 +18,14 @@ public class SimpleMovieSearchService implements MovieSearchService
 {
 	@Autowired
 	private MovieDataService movieDataService;
-	
-	private boolean isSameMovie(String movieName,String queryText)
+
+	private boolean isSameMovie(String movieName, String queryText)
 	{
-		String[]words = movieName.split(" ");
-		for(int i=0;i<words.length;i++)
+		String[] words = movieName.split(" ");
+		for (int i = 0; i < words.length; i++)
 		{
-			if(words[i].toLowerCase().compareTo(queryText) == 0) return true;
+			if (words[i].toLowerCase().compareTo(queryText) == 0)
+				return true;
 		}
 		return false;
 	}
@@ -35,16 +36,16 @@ public class SimpleMovieSearchService implements MovieSearchService
 		// TODO: Step 2 => Implement this method by using data from MovieDataService
 		// All test in SimpleMovieSearchServiceIntegrationTest must pass.
 		// Please do not change @Component annotation on this class
-		queryText=queryText.toLowerCase();
-		
-		List<Movie>ans = new ArrayList<Movie>();
+		queryText = queryText.toLowerCase();
+
+		List<Movie> ans = new ArrayList<Movie>();
 		MovieDataServiceImpl movieDataService = new MovieDataServiceImpl();
-		MoviesResponse result =  movieDataService.fetchAll();
-		for(int i=0;i<result.size();i++)
+		MoviesResponse result = movieDataService.fetchAll();
+		for (int i = 0; i < result.size(); i++)
 		{
 			MovieData movieData = result.get(i);
-			if(isSameMovie(movieData.getTitle(),queryText))
-				ans.add(new Movie(movieData.getId(),movieData.getTitle(),movieData.getCast()));
+			if (isSameMovie(movieData.getTitle(), queryText))
+				ans.add(new Movie(movieData.getId(), movieData.getTitle(), movieData.getCast()));
 		}
 		return ans;
 	}
