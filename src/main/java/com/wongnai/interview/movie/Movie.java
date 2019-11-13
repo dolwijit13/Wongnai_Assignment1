@@ -11,7 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Movie {
+public class Movie
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -24,26 +25,38 @@ public class Movie {
 	/**
 	 * Required by JPA.
 	 */
-	protected Movie() {
+	protected Movie()
+	{
 	}
 
-	public Movie(String name) {
+	public Movie(String name)
+	{
 		this.name = name;
 	}
+	
+	public Movie(String name,List<String> cast)
+	{
+		this.name = name;
+		this.actors = cast;
+	}
 
-	public Long getId() {
+	public Long getId()
+	{
 		return id;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public List<String> getActors() {
+	public List<String> getActors()
+	{
 		return actors;
 	}
 }
