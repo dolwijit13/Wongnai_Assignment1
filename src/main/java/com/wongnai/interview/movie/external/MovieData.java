@@ -12,6 +12,14 @@ public class MovieData
 	public MovieData()
 	{
 	}
+	
+	public MovieData(String title,int year,List<String> cast,List<String> genres)
+	{
+		setTitle(title);
+		setYear(year);
+		setCast(cast);
+		setGenres(genres);
+	}
 
 	public String getTitle()
 	{
@@ -51,5 +59,11 @@ public class MovieData
 	public void setGenres(List<String> genres)
 	{
 		this.genres = genres;
+	}
+	
+	//For print test
+	public String toString()
+	{
+		return "Title : "+title + " | Year : "+year+" | Cast : "+cast+" | Genres : "+genres+"\n";
 	}
 }
