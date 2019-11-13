@@ -67,7 +67,7 @@ public class MovieDataServiceImpl implements MovieDataService
 				List<String> cast = jsonArrayToArrayList(jsonObject.get("cast"));
 				List<String> genres = jsonArrayToArrayList(jsonObject.get("genres"));
 
-				moviesResponse.add(new MovieData(title, year, cast, genres));
+				moviesResponse.add(new MovieData(title, year, cast, genres,i));
 			}
 			// */
 

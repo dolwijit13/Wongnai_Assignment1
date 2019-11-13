@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.wongnai.interview.movie.Movie;
 import com.wongnai.interview.movie.MovieSearchService;
+import com.wongnai.interview.movie.external.MovieData;
 import com.wongnai.interview.movie.external.MovieDataService;
 import com.wongnai.interview.movie.external.MovieDataServiceImpl;
 import com.wongnai.interview.movie.external.MoviesResponse;
@@ -39,9 +40,9 @@ public class SimpleMovieSearchService implements MovieSearchService
 		MoviesResponse result =  movieDataService.fetchAll();
 		for(int i=0;i<result.size();i++)
 		{
-			String movieName = result.get(i).getTitle();
-			if(isSameMovie(movieName,queryText))
-				ans.add(new Movie(movieName,result.get(i).getCast()));
+			MovieData movieData = result.get(i);
+			if(isSameMovie(movieData.getTitle(),queryText))
+				ans.add(new Movie(movieData.getId(),movieData.getTitle(),movieData.getCast()));
 		}
 		return ans;
 	}

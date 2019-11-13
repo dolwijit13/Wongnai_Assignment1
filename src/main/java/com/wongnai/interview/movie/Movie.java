@@ -34,8 +34,9 @@ public class Movie
 		this.name = name;
 	}
 	
-	public Movie(String name,List<String> cast)
+	public Movie(long id,String name,List<String> cast)
 	{
+		this.id = id;
 		this.name = name;
 		this.actors = cast;
 	}

@@ -8,17 +8,19 @@ public class MovieData
 	private int year;
 	private List<String> cast;
 	private List<String> genres;
+	private long id;
 
 	public MovieData()
 	{
 	}
 	
-	public MovieData(String title,int year,List<String> cast,List<String> genres)
+	public MovieData(String title,int year,List<String> cast,List<String> genres,long id)
 	{
 		setTitle(title);
 		setYear(year);
 		setCast(cast);
 		setGenres(genres);
+		setID(id);
 	}
 
 	public String getTitle()
@@ -59,6 +61,16 @@ public class MovieData
 	public void setGenres(List<String> genres)
 	{
 		this.genres = genres;
+	}
+	
+	public long getId()
+	{
+		return id;
+	}
+
+	public void setID(long id)
+	{
+		this.id = id;
 	}
 	
 	//For print test
