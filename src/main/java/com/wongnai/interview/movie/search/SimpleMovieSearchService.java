@@ -45,7 +45,7 @@ public class SimpleMovieSearchService implements MovieSearchService
 		{
 			MovieData movieData = result.get(i);
 			if (isSameMovie(movieData.getTitle(), queryText))
-				ans.add(new Movie(movieData.getId(), movieData.getTitle(), movieData.getCast()));
+				ans.add(new Movie(movieData));
 		}
 		return ans;
 	}
