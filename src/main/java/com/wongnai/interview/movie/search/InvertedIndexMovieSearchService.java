@@ -3,7 +3,6 @@ package com.wongnai.interview.movie.search;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
@@ -20,7 +19,7 @@ public class InvertedIndexMovieSearchService implements MovieSearchService
 {
 	@Autowired
 	private MovieRepository movieRepository;
-	private static HashMap<String, ArrayList<Long>> invertedIndex = new HashMap<String, ArrayList<Long>>();;
+	private static HashMap<String, ArrayList<Long>> invertedIndex;
 
 	@Override
 	public List<Movie> search(String queryText)
@@ -106,7 +105,12 @@ public class InvertedIndexMovieSearchService implements MovieSearchService
 		return ans;
 	}
 
-	public static void initialInvertedIndex(MovieData movieData)
+	public static void initialInvertedIndex()
+	{
+		invertedIndex = new HashMap<String, ArrayList<Long>>();
+	}
+	
+	public static void addInvertedIndex(MovieData movieData)
 	{
 		String[] terms = movieData.getTitle().split(" ");
 		long idx = movieData.getId();

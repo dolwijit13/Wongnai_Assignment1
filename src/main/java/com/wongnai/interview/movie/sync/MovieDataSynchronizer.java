@@ -1,8 +1,5 @@
 package com.wongnai.interview.movie.sync;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +26,12 @@ public class MovieDataSynchronizer
 	{
 		// TODO: implement this to sync movie into repository\
 		MoviesResponse moviesResponse = movieDataService.fetchAll();
-		for(int i=0;i<moviesResponse.size();i++)
+		InvertedIndexMovieSearchService.initialInvertedIndex();
+		for (int i = 0; i < moviesResponse.size(); i++)
 		{
 			MovieData movieData = moviesResponse.get(i);
 			movieRepository.save(new Movie(movieData));
-			InvertedIndexMovieSearchService.initialInvertedIndex(movieData);
+			InvertedIndexMovieSearchService.addInvertedIndex(movieData);
 		}
 	}
 }

@@ -29,7 +29,6 @@ public class InvertedIndexMovieSearchServiceIntegrationTest {
 	@Test
 	public void testFindSingleKeywordContainInTitleWithCaseInsensitive() {
 		List<Movie> result = searchService.search("glorious");
-
 		assertGloriousMovieKeyword(result);
 	}
 
