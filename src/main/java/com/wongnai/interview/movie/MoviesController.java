@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/movies")
-public class MoviesController {
+public class MoviesController
+{
 	/**
 	 * Inject movie search service and use to handle search request.
 	 * <p>
@@ -24,16 +25,18 @@ public class MoviesController {
 	 * </pre>
 	 */
 	@Autowired
-	@Qualifier("databaseMovieSearchService")
+	@Qualifier("invertedIndexMovieSearchService")
 	private MovieSearchService movieSearchService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String helloWorld() {
+	public String helloWorld()
+	{
 		return "Hello World!";
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public List<Movie> searchTitleWithKeyword(@RequestParam("q") String keyword) {
+	public List<Movie> searchTitleWithKeyword(@RequestParam("q") String keyword)
+	{
 		return movieSearchService.search(keyword);
 	}
 }

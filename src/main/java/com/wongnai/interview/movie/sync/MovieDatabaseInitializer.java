@@ -4,6 +4,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.wongnai.interview.movie.search.InvertedIndexMovieSearchService;
+
 @Component("movieDatabaseInitializer")
 public class MovieDatabaseInitializer implements InitializingBean {
 	@Autowired
