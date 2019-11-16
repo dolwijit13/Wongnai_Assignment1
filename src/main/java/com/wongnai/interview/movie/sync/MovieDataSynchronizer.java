@@ -27,6 +27,6 @@ public class MovieDataSynchronizer
 	{
 		// TODO: implement this to sync movie into repository\
 		MoviesResponse moviesResponse = movieDataService.fetchAll();
-		movieRepository.save(new Movie(moviesResponse.get(0)));
+		for(int i=0;i<moviesResponse.size();i++) movieRepository.save(new Movie(moviesResponse.get(i)));
 	}
 }
